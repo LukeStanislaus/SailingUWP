@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using SailingUWP;
 
 namespace SailingUWP
 {
@@ -28,6 +29,7 @@ namespace SailingUWP
         /// </summary>
         public App()
         {
+            Console.ReadLine();
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }

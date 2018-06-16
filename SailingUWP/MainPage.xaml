@@ -9,6 +9,16 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <TextBlock x:Name="ExceptionBox" HorizontalAlignment="Left" Margin="409,183,0,0" Text="Your name doesn't contain any boats!" TextWrapping="Wrap" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <ComboBox x:Name="dropdown" HorizontalAlignment="Left" Margin="504,218,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="enterButton" Content="Enter" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="632,218,0,0" Click="enterButton_Click"/>
+        <AutoSuggestBox x:Name="autoSuggest" HorizontalAlignment="Left" Margin="397,37,0,0" VerticalAlignment="Top" PlaceholderText="Enter your boatname here" 
+                        QueryIcon="Find" Width="278" TextChanged="AutoSuggestBox_TextChanged"
+                QuerySubmitted="AutoSuggestBox_QuerySubmitted"
+                SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>
+        <TextBox x:Name="boatnamebox" HorizontalAlignment="Left" Margin="828,170,0,0" VerticalAlignment="Top" Header="Enter your Boat Name:" PlaceholderText="Boat Name" Visibility="Collapsed"/>
+        <TextBox x:Name="boatnumberbox" HorizontalAlignment="Left" Margin="828,230,0,0" VerticalAlignment="Top" Header="Enter your Boat Number:" PlaceholderText="Boat Number" Visibility="Collapsed"/>
+        <Button x:Name="enterbutton" Content="Enter" HorizontalAlignment="Left" Margin="1039,196,0,0" VerticalAlignment="Top" Click="enterbutton_Click_1" Visibility="Collapsed"/>
 
     </Grid>
 </Page>

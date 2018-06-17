@@ -53,7 +53,7 @@ namespace SailingUWP
             {
                 boatnamebox.Visibility = Visibility.Visible;
                 boatnumberbox.Visibility = Visibility.Visible;
-                enterButton.Visibility = Visibility.Visible;
+                //enterButton.Visibility = Visibility.Visible;
                     
                     }
         }
@@ -64,7 +64,7 @@ namespace SailingUWP
             // or the handler for SuggestionChosen.
             if (args.Reason == AutoSuggestionBoxTextChangeReason.UserInput)
             {
-                List<string> namelist1 = namelist.FindAll(x => x.Contains(autoSuggest.Text));
+                List<string> namelist1 = namelist.FindAll(x => x.ToUpper().Contains(autoSuggest.Text.ToUpper()));
                 autoSuggest.ItemsSource = namelist1;
             }
         }
@@ -128,9 +128,25 @@ namespace SailingUWP
             }
         }
 
-        private void enterbutton_Click_1(object sender, RoutedEventArgs e)
+        private void enterbutton1_Click_1(object sender, RoutedEventArgs e)
         {
             LoadFullSQL.SQLAddboat(personboat[0].name, boatnamebox.Text, int.Parse(boatnumberbox.Text));
+            boatnamebox.Visibility = Visibility.Collapsed;
+            boatnumberbox.Visibility = Visibility.Collapsed;
+            enterbutton1.Visibility = Visibility.Collapsed;
+        }
+
+        private void boatnamebox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+        public int i = 0;
+        private void boatnumberbox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                enterbutton1.Visibility = Visibility.Visible;
+            }
         }
     }
     

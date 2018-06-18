@@ -16,9 +16,14 @@
                         QueryIcon="Find" Width="278" TextChanged="AutoSuggestBox_TextChanged"
                 QuerySubmitted="AutoSuggestBox_QuerySubmitted"
                 SuggestionChosen="AutoSuggestBox_SuggestionChosen"/>
-        <TextBox x:Name="boatnamebox" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Header="Enter your Boat Name:" PlaceholderText="Boat Name" Visibility="Collapsed" TextChanged="boatnamebox_TextChanged"/>
+        <AutoSuggestBox x:Name="boatnameauto" HorizontalAlignment="Left" Margin="150,200,0,0" VerticalAlignment="Top" Header="Enter your Boat Name:" PlaceholderText="Boat Name" Visibility="Collapsed" TextChanged="boatnameauto_TextChanged"
+                SuggestionChosen="boatnameauto_SuggestionChosen" QueryIcon="Find"/>
         <TextBox x:Name="boatnumberbox" HorizontalAlignment="Left" Margin="150,275,0,0" VerticalAlignment="Top" Header="Enter your Boat Number:" PlaceholderText="Boat Number" Visibility="Collapsed" TextChanged="boatnumberbox_TextChanged"/>
-        <Button x:Name="enterbutton1" Content="Enter" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Click="enterbutton_Click_1" Visibility="Visible"/>
-
+        <Button x:Name="enterbutton1" Content="Enter" HorizontalAlignment="Left" Margin="150,350,0,0" VerticalAlignment="Top" Click="enterbutton1_Click_1" Visibility="Collapsed"/>
+        <CheckBox x:Name="crew" Checked="crew_Checked" Content="Crew?" HorizontalAlignment="Left" Margin="500,37,0,0" VerticalAlignment="Top" Visibility="Collapsed"/>
+        <AutoSuggestBox x:Name="autoSuggestCrew" HorizontalAlignment="Left" Margin="600,37,0,0" VerticalAlignment="Top" PlaceholderText="Enter crew name here" 
+                        QueryIcon="Find" Width="278" TextChanged="autoSuggestCrew_TextChanged"
+                QuerySubmitted="autoSuggestCrew_QuerySubmitted"
+                SuggestionChosen="autoSuggestCrew_SuggestionChosen" Visibility="Collapsed"/>
     </Grid>
 </Page>

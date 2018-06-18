@@ -155,6 +155,14 @@ namespace SailingUWP
 
 
         }
+        public static int SQLcheckcrew(string boatName)
+        {
+            using (IDbConnection connection = new MySql.Data.MySqlClient.MySqlConnection(Helper.CnnVal("sailingDB")))
+            {
+                //connection.Query("call removeperson('" + race + "', '" + name + "')");
+                return connection.Query<int>("call checkcrew(@boatName)", new { boatName = boatName }).First();
+            }
+        }
         public static void SQLremove(bool race, string name)
         {
             using (IDbConnection connection = new MySql.Data.MySqlClient.MySqlConnection(Helper.CnnVal("sailingDB")))
@@ -163,17 +171,21 @@ namespace SailingUWP
                 connection.Query("call removeperson(@race, @name)", new { race = race, name = name });
             }
         }
-        public static void SQLaddnewracer(Boats personboat)
+        public static void SQLaddnewracer(Boats personboat, int crew)
         {
-            using (IDbConnection connection = new MySql.Data.MySqlClient.MySqlConnection(Helper.CnnVal("sailingDB")))
-            {
-                connection.Query("call enterraceperson(@name, @boatName, @boatNumber)", new
+                using (IDbConnection connection = new MySql.Data.MySqlClient.MySqlConnection(Helper.CnnVal("sailingDB")))
                 {
-                    name = personboat.name,
-                    boatName = personboat.boatName,
-                    boatNumber = personboat.boatNumber
-                });
-            }
+                    connection.Query("call enterraceperson(@name, @boatName, @boatNumber, @crew)", new
+                    {
+                        name = personboat.name,
+                        boatName = personboat.boatName,
+                        boatNumber = personboat.boatNumber,
+                        crew = crew
+
+                    });
+                }
+            
+
         }
 
         public static Dictionary<string, Boatsold> getdictionary(List<Boatsold> list)
@@ -221,6 +233,25 @@ namespace SailingUWP
                 catch (InvalidOperationException)
                 {
                     return new List<Boats>();
+                }
+                //return obj;
+                //return connection.Query<Boats>("returnboat @fullname", new { fullname = name }).First();
+            }
+        }
+        public static List<String> GetClasses()
+        {
+            using (IDbConnection connection = new MySql.Data.MySqlClient.MySqlConnection(Helper.CnnVal("sailingDB")))
+            {
+                //string sql = "call returnboat('" + name + "')";
+                //var obj =  connection.Query<Boats>(sql).First();
+                try
+                {
+                    return connection.Query<String>("call returnclass").ToList();
+
+                }
+                catch (InvalidOperationException)
+                {
+                    return new List<String>();
                 }
                 //return obj;
                 //return connection.Query<Boats>("returnboat @fullname", new { fullname = name }).First();

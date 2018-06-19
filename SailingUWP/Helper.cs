@@ -12,6 +12,10 @@ namespace SailingUWP
         public static string CnnVal(string name)
         {
             //return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+            
+            // Luke's PC Name : SSGDYHFG-PC 192.168.1.96
+            //Adrian's PC Name : HP-Office  192.168.1.9
+            
             string connect = @"Server=192.168.1.96;Database=sailing;Uid=root;Pwd=abc123;";
             //;  providerName=MySQL.Data.MySqlClient";
         return connect;

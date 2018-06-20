@@ -13,9 +13,7 @@ namespace SailingUWP
         {
             //return ConfigurationManager.ConnectionStrings[name].ConnectionString;
             
-            // Luke's PC Name : SSGDYHFG-PC 192.168.1.96
-            //Adrian's PC Name : HP-Office  192.168.1.9
-            
+
             //  Luke's PC Name : SSGDYHFG-PC 192.168.1.96
             //  Adrian's PC Name : HP-Office  192.168.1.9
             //  Instructions to open port on Windows 10 PC :
@@ -32,6 +30,9 @@ namespace SailingUWP
 
             
             string connect = @"Server=192.168.1.96;Database=sailing;Uid=root;Pwd=abc123;";
+
+           // string connect = @"Server=SSGDYHFG-PC;Database=sailing;Uid=adrian;Pwd=abc123;";
+
             //;  providerName=MySQL.Data.MySqlClient";
         return connect;
                 }
